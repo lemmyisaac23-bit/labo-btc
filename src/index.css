@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 217 91% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 217 91% 54%;
+
+    --radius: 0.75rem;
+
+    /* Brand theme colors */
+    --crypto-blue-dark: 217 91% 35%;
+    --crypto-blue: 217 91% 54%;
+    --crypto-blue-light: 214 95% 93%;
+    --crypto-gold: 217 91% 54%;
+    --crypto-gold-light: 214 95% 93%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(90deg, #0a2540 0%, #1e4a8a 45%, #2563eb 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-gold: linear-gradient(90deg, #1e3a5f 0%, #2563eb 100%);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 40px hsl(217 91% 54% / 0.2);
+    --shadow-card: 0 4px 24px hsl(220 45% 4% / 0.08);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+  .animate-float-slow {
+    animation: float 9s ease-in-out infinite 1s;
+  }
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+  .animate-pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+  .animate-ticker {
+    animation: ticker 30s linear infinite;
+  }
+  .hero-grid {
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(45 93% 58%) 0%, hsl(45 100% 75%) 50%, hsl(35 95% 60%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-blue {
+    background: linear-gradient(135deg, hsl(210 100% 75%) 0%, hsl(240 100% 80%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .card-glow:hover {
+    box-shadow: 0 0 30px hsl(45 93% 58% / 0.15), 0 20px 60px hsl(220 45% 4% / 0.5);
+  }
+  .orb {
+    border-radius: 50%;
+    filter: blur(80px);
+    position: absolute;
+    pointer-events: none;
+  }
+  .landing-hero-banner {
+    background: linear-gradient(90deg, #0a2540 0%, #1e4a8a 45%, #2563eb 100%);
+  }
+}
+
+@layer components {
+  .app-page {
+    @apply min-h-screen bg-gray-50 text-gray-900;
+  }
+
+  .app-topbar {
+    @apply border-b border-gray-200 bg-white;
+  }
+
+  .app-card {
+    @apply rounded-xl border border-gray-200 bg-white shadow-sm;
+  }
+
+  .app-card-accent {
+    @apply rounded-xl border border-blue-200 bg-blue-50;
+  }
+
+  .app-card-header {
+    @apply bg-gradient-to-r from-[#1e3a5f] to-[#2563eb] p-4 text-white;
+  }
+
+  .app-btn-primary {
+    @apply bg-gradient-to-r from-[#1e3a5f] to-[#2563eb] text-white hover:brightness-110;
+  }
+
+  .app-input {
+    @apply border-gray-200 bg-white text-gray-900;
+  }
+
+  .app-select {
+    @apply rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none;
+  }
+
+  .app-logout-btn {
+    @apply border-rose-300 text-rose-600 hover:bg-rose-50 text-sm px-3 lg:px-4;
+  }
+
+  .app-badge {
+    @apply rounded-lg bg-[#2563eb] px-4 py-2 text-sm font-semibold text-white;
+  }
+
+  .app-table-head {
+    @apply bg-gray-50 text-gray-600;
+  }
+
+  .app-muted-box {
+    @apply rounded-lg border border-blue-200 bg-blue-50 p-4 text-sm text-blue-900;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-20px) rotate(5deg); }
+  66% { transform: translateY(-10px) rotate(-3deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
