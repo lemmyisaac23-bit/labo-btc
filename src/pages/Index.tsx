@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { LandingChatWidget } from "@/components/LandingChatWidget";
 import { LandingHeroBanner } from "@/components/home/LandingHeroBanner";
 import { VpsLocationsBar } from "@/components/home/VpsLocationsBar";
 import { CloudMiningSection } from "@/components/home/CloudMiningSection";
@@ -19,7 +18,6 @@ const Index = () => {
       <MiningInfoSection />
       <ReviewsSection />
       <Footer />
-      <LandingChatWidget />
     </div>
   );
 };
