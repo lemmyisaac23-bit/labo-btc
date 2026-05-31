@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { Logo } from "@/components/Logo";
-import { ChevronDown } from "lucide-react";
 
 export const Navbar = () => {
   const { user, signOut, isAdmin, loading, session } = useAuth();
@@ -61,16 +60,6 @@ export const Navbar = () => {
                 </Link>
               </>
             )}
-
-            <button
-              type="button"
-              className="hidden items-center gap-1.5 rounded-md border border-gray-200 px-2.5 py-1.5 text-xs font-medium text-gray-700 sm:flex"
-              aria-label="Language selector"
-            >
-              <span className="text-base leading-none">🇺🇸</span>
-              <span>US</span>
-              <ChevronDown className="h-3 w-3 text-gray-400" />
-            </button>
           </div>
         </div>
       </div>
